@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mahveen Raza · Student Portfolio</title>
+  <meta name="description" content="Student portfolio of Mahveen Raza: projects, resume, and contact." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23596bff'/%3E%3Ctext x='50' y='58' font-size='56' text-anchor='middle' fill='white' font-family='Arial,Helvetica,sans-serif'%3EM%3C/text%3E%3C/svg%3E" />
+  <style>
+    :root{
+      --bg: #0b0c10; /* auto-switched in JS for system theme */
+      --text: #111827;
+      --muted: #6b7280;
+      --card: #ffffff;
+      --ring: #6366f1;
+      --accent: #2563eb;
+      --border: #e5e7eb;
+      --shadow: 0 1px 2px rgba(0,0,0,.06), 0 8px 24px rgba(0,0,0,.08);
+    }
+    [data-theme="dark"]{
+      --bg: #0b0c10;
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --card: #0f1115;
+      --ring: #818cf8;
+      --accent: #60a5fa;
+      --border: #1f2937;
+      --shadow: 0 1px 2px rgba(0,0,0,.2), 0 10px 34px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";background:var(--bg);color:var(--text);}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:980px;margin:0 auto;padding:0 16px}
+    header{position:sticky;top:0;backdrop-filter:saturate(140%) blur(6px);border-bottom:1px solid var(--border);}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700}
+    .logo{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--ring),#22d3ee);box-shadow:var(--shadow)}
+    .links{display:flex;gap:18px;align-items:center}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid var(--border);background:transparent;color:var(--text)}
+    .btn.primary{background:var(--ring);border-color:transparent;color:white}
+    .btn:hover{filter:brightness(1.05)}
+
+    /* Sections */
+    section{padding:72px 0}
+    h1{font-size:clamp(28px,4.5vw,44px);margin:10px 0 0}
+    h2{font-size:clamp(22px,3.5vw,30px);margin:0 0 16px}
+    p{line-height:1.7;color:var(--muted)}
+    .grid{display:grid;gap:16px}
+    @media(min-width:720px){.grid.cols-2{grid-template-columns:1fr 1fr}.grid.cols-3{grid-template-columns:repeat(3,1fr)}}
+
+    .card{background:var(--card);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);padding:18px}
+    .pill{display:inline-block;font-size:12px;padding:4px 10px;border-radius:999px;border:1px solid var(--border);color:var(--muted)}
+
+    /* Hero */
+    .hero{display:grid;gap:28px;align-items:center}
+    @media(min-width:900px){.hero{grid-template-columns:1.1fr .9fr}}
+    .avatar{position:relative;width:min(340px,85%);aspect-ratio:1/1;border-radius:28px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow)}
+    .avatar img{width:100%;height:100%;object-fit:cover;display:block}
+
+    /* Footer */
+    footer{padding:36px 0;border-top:1px solid var(--border);color:var(--muted);text-align:center}
+
+    /* Simple list styles */
+    ul.clean{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+    ul.clean li{display:flex;gap:8px;align-items:flex-start}
+    .dot{width:8px;height:8px;border-radius:999px;background:var(--ring);margin-top:10px}
+
+    /* Mobile menu */
+    .mobile-only{display:none}
+    @media(max-width:760px){
+      .desktop-only{display:none}
+      .mobile-only{display:block}
+      .links{display:none}
+    }
+  </style>
+  <script>
+    // Theme: prefer system, allow toggle
+    const stored = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute('data-theme', stored || (prefersDark ? 'dark' : 'light'));
+    function toggleTheme(){
+      const now = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', now);
+      localStorage.setItem('theme', now);
+    }
+    function toggleMenu(){
+      const m = document.getElementById('mnav');
+      m.hidden = !m.hidden;
+    }
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <a href="#home" class="brand" aria-label="Mahveen Raza">
+        <span class="logo" aria-hidden="true"></span>
+        <span>Mahveen Raza</span>
+      </a>
+      <nav class="links desktop-only" aria-label="Primary">
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+        <button class="btn" onclick="toggleTheme()" aria-label="Toggle theme">Theme</button>
+        <a class="btn primary" href="#resume">Resume</a>
+      </nav>
+      <button class="btn mobile-only" onclick="toggleMenu()" aria-expanded="false" aria-controls="mnav">Menu</button>
+    </div>
+    <div id="mnav" class="container mobile-only" hidden>
+      <div class="grid" style="padding: 8px 0 16px">
+        <a href="#projects" onclick="toggleMenu()">Projects</a>
+        <a href="#skills" onclick="toggleMenu()">Skills</a>
+        <a href="#education" onclick="toggleMenu()">Education</a>
+        <a href="#contact" onclick="toggleMenu()">Contact</a>
+        <div style="display:flex;gap:10px">
+          <button class="btn" onclick="toggleTheme()">Theme</button>
+          <a class="btn primary" href="#resume" onclick="toggleMenu()">Resume</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main id="home" class="container">
+    <section class="hero">
+      <div>
+        <p class="pill">Student · Web Developer · Learner</p>
+        <h1>Hi, I'm Mahveen— I build small, polished apps while I learn.</h1>
+        <p>I'm a student interested in full‑stack development and data visualization. I like clean, accessible design and learning by doing. I'm currently looking for internship opportunities.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px">
+          <a class="btn primary" href="#projects">See Projects</a>
+          <a class="btn" href="#contact">Contact</a>
+        </div>
+      </div>
+      <div style="display:grid;place-items:center">
+        <div class="avatar" aria-label="Profile photo placeholder">
+          <!-- Replace with your own photo in /assets/profile.jpg -->
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop" alt="Portrait" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <h2>Projects</h2>
+      <p>Three simple, representative projects. Link to live demos and code.</p>
+      <div class="grid cols-3">
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop" alt="Project screenshot" style="width:100%;height:140px;object-fit:cover;border-radius:12px" />
+          <h3 style="margin:12px 0 6px">Campus Planner</h3>
+          <p style="margin:0 0 10px">Task & timetable web app to organize classes and deadlines. React + LocalStorage.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn" href="#" target="_blank" rel="noopener">Live</a>
+            <a class="btn" href="#" target="_blank" rel="noopener">Code</a>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1551281044-8d8d0d8d8d8d?q=80&w=1200&auto=format&fit=crop" alt="Project screenshot" style="width:100%;height:140px;object-fit:cover;border-radius:12px" />
+          <h3 style="margin:12px 0 6px">Study Streak</h3>
+          <p style="margin:0 0 10px">Android habit tracker that rewards consistent study. Kotlin + Room.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn" href="#" target="_blank" rel="noopener">Live</a>
+            <a class="btn" href="#" target="_blank" rel="noopener">Code</a>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop" alt="Project screenshot" style="width:100%;height:140px;object-fit:cover;border-radius:12px" />
+          <h3 style="margin:12px 0 6px">Notes AIssist</h3>
+          <p style="margin:0 0 10px">Mini app that summarizes notes into flashcards using a small local model.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <a class="btn" href="#" target="_blank" rel="noopener">Live</a>
+            <a class="btn" href="#" target="_blank" rel="noopener">Code</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="grid cols-3">
+        <div class="card">
+          <h3 style="margin:0 0 8px">Languages</h3>
+          <ul class="clean">
+            <li><span class="dot"></span> Python, JavaScript/TypeScript</li>
+            <li><span class="dot"></span> HTML, CSS</li>
+            <li><span class="dot"></span> SQL (SQLite)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 style="margin:0 0 8px">Frameworks</h3>
+          <ul class="clean">
+            <li><span class="dot"></span> React, Vite</li>
+            <li><span class="dot"></span> Node, Express</li>
+            <li><span class="dot"></span> Tailwind CSS</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 style="margin:0 0 8px">Tools</h3>
+          <ul class="clean">
+            <li><span class="dot"></span> Git & GitHub</li>
+            <li><span class="dot"></span> VS Code</li>
+            <li><span class="dot"></span> Figma (basics)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education">
+      <h2>Education</h2>
+      <div class="grid cols-2">
+        <div class="card">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+            <div>
+              <strong>B.Sc. in Computer Science</strong>
+              <p style="margin:6px 0 0" class="muted">Your University</p>
+            </div>
+            <span class="pill">2023 — Present</span>
+          </div>
+          <ul class="clean" style="margin-top:10px">
+            <li><span class="dot"></span> GPA: 3.8/4.0</li>
+            <li><span class="dot"></span> Clubs: Women in Tech, Hackathon Society</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+            <div>
+              <strong>Certificates & Courses</strong>
+              <p style="margin:6px 0 0" class="muted">Coursera, edX</p>
+            </div>
+            <span class="pill">2022 — 2025</span>
+          </div>
+          <ul class="clean" style="margin-top:10px">
+            <li><span class="dot"></span> Web Dev with React</li>
+            <li><span class="dot"></span> Intro to Data Science</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resume -->
+    <section id="resume">
+      <h2>Resume</h2>
+      <div class="card" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px">
+        <p style="margin:0">Download a PDF copy or view online.</p>
+        <!-- TODO: place your file at /assets/Mahveen_Raza_Resume.pdf and update link below -->
+        <div style="display:flex;gap:10px">
+          <a class="btn primary" href="assets/Mahveen_Raza_Resume.pdf" target="_blank" rel="noopener">Download PDF</a>
+          <a class="btn" href="assets/Mahveen_Raza_Resume.pdf" target="_blank" rel="noopener">View Online</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="card">
+        <p>Email: <a href="mailto:mahveen@example.com">mahveen@example.com</a></p>
+        <p>Links: <a href="https://github.com/mahveenraza" target="_blank" rel="noopener">GitHub</a> · <a href="#" target="_blank" rel="noopener">LinkedIn</a></p>
+        <p style="margin-top:8px">Prefer email? Send a quick note and I’ll reply soon.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <small>© <span id="year"></span> Mahveen Raza. Built with plain HTML/CSS/JS. No build tools.</small>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
