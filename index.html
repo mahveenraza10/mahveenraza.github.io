@@ -18,11 +18,11 @@
     }
     body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;line-height:1.6;background:var(--bg);color:var(--text)}
     .container{max-width:920px;margin:0 auto;padding:0 16px}
-    header{position:sticky;top:0;backdrop-filter:saturate(140%) blur(6px);border-bottom:1px solid var(--border);background:rgba(255,245,247,.8)}
+    header{position:sticky;top:0;backdrop-filter:saturate(140%) blur(6px);border-bottom:1px solid var(--border);background:rgba(255,245,247,.8);z-index:10}
     .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
     .brand{display:flex;align-items:center;gap:10px;font-weight:700}
     .links{display:flex;gap:18px;align-items:center}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid var(--border);background:var(--paper);color:var(--text);box-shadow:var(--shadow)}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid var(--border);background:var(--paper);color:var(--text);box-shadow:var(--shadow);text-decoration:none}
     .btn.primary{background:var(--accent);border-color:transparent;color:#fff}
     section{padding:64px 0}
     h1{font-size:clamp(28px,4.5vw,42px);margin:8px 0 0}
@@ -36,6 +36,7 @@
     ul.clean li{display:flex;gap:10px}
     .dot{width:8px;height:8px;border-radius:999px;background:var(--ring);margin-top:10px}
     footer{padding:36px 0;border-top:1px solid var(--border);text-align:center;color:var(--muted)}
+    .btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
   </style>
 </head>
 <body>
@@ -46,6 +47,7 @@
         <a href="#achievements">Achievements</a>
         <a href="#contributions">Contributions</a>
         <a href="#research">Research</a>
+        <a href="#media">Media</a>
         <a href="#news">News</a>
         <a href="#interests">Interests</a>
         <a href="#contact">Contact</a>
@@ -59,8 +61,13 @@
       <p class="pill">High School Student · HWDSB · Hamilton, Canada</p>
       <h1>Hi, I'm Mahveen.</h1>
       <p>I’m a high school student in the Hamilton-Wentworth District School Board (HWDSB), located in Hamilton, Ontario, Canada. I enjoy building small, useful projects and learning new skills in technology and science. I’m currently looking for opportunities to learn, volunteer, and contribute.</p>
-      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
+      <div class="btnrow">
         <a class="btn" href="#contact">Contact Me</a>
+        <!-- Quick links to your Medium + Podcast -->
+        <a class="btn" target="_blank" rel="noopener"
+           href="https://medium.com/@mahveen.raza10/how-ai-vaccines-work-fine-tuning-prompt-injection-defence-and-red-teaming-to-keep-ai-safe-3b4281babd62">Read my Medium article</a>
+        <a class="btn" target="_blank" rel="noopener"
+           href="https://your-podcast-link-here">Listen to my podcast</a>
       </div>
     </section>
 
@@ -115,11 +122,33 @@
       </div>
     </section>
 
+    <!-- New MEDIA section for article + podcast -->
+    <section id="media">
+      <h2>Media</h2>
+      <div class="grid cols-2">
+        <div class="card">
+          <strong>Medium: How AI Vaccines Work</strong>
+          <p>My explainer on fine-tuning, prompt-injection defense, and red-teaming to keep AI safe.</p>
+          <p><a class="btn" target="_blank" rel="noopener"
+                href="https://medium.com/@mahveen.raza10/how-ai-vaccines-work-fine-tuning-prompt-injection-defence-and-red-teaming-to-keep-ai-safe-3b4281babd62">Read on Medium</a></p>
+        </div>
+        <div class="card">
+          <strong>Podcast</strong>
+          <p>Student-led podcast featuring community voices and school projects.</p>
+          <p><a class="btn" target="_blank" rel="noopener"
+                href="https://your-podcast-link-here">Listen to the podcast</a></p>
+          <!-- TODO: Replace the link above with your real podcast URL (Spotify/YouTube/Apple/etc.) -->
+        </div>
+      </div>
+    </section>
+
     <section id="news">
       <h2>News & Updates</h2>
       <div class="card">
         <p><em>Latest monthly updates and announcements will appear here.</em></p>
         <ul class="clean">
+          <li><span class="dot"></span> <strong>August 2025:</strong> Published <a target="_blank" rel="noopener" href="https://medium.com/@mahveen.raza10/how-ai-vaccines-work-fine-tuning-prompt-injection-defence-and-red-teaming-to-keep-ai-safe-3b4281babd62">“How AI Vaccines Work”</a> on Medium.</li>
+          <li><span class="dot"></span> <strong>August 2025:</strong> New episode on the <a target="_blank" rel="noopener" href="https://your-podcast-link-here">student podcast</a>.</li>
           <li><span class="dot"></span> <strong>August 2025:</strong> Green AI project, AI vaccine project, library volunteer work.</li>
           <li><span class="dot"></span> <strong>July 2025:</strong> Library volunteer work.</li>
           <li>
@@ -149,7 +178,7 @@
       <h2>Resume</h2>
       <div class="card" style="display:flex;flex-direction:column;gap:12px">
         <p>View or download my full resume below.</p>
-        <iframe src="assets/Mahveen_Raza_Resume.pdf" width="100%" height="600px" style="border:1px solid var(--border);border-radius:8px"></iframe>
+        <iframe src="assets/Mahveen_Raza_Resume.pdf" width="100%" height="600" style="border:1px solid var(--border);border-radius:8px"></iframe>
         <a class="btn primary" href="assets/Mahveen_Raza_Resume.pdf" target="_blank" rel="noopener">Download PDF</a>
       </div>
     </section>
@@ -170,6 +199,8 @@
     </div>
   </footer>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
