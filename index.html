@@ -4,32 +4,26 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mahveen Raza · Student Portfolio</title>
-  <meta name="description" content="Simple, professional student website for Mahveen Raza (HWDSB): achievements, contributions, research, and interests." />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23f472b6'/%3E%3Ctext x='50' y='60' font-size='48' text-anchor='middle' fill='white' font-family='Arial,Helvetica,sans-serif'%3EM%3C/text%3E%3C/svg%3E" />
+  <meta name="description" content="Simple, professional student website for Mahveen Raza (HWDSB, Hamilton, Canada): achievements, contributions, research, news, and interests." />
   <style>
     :root{
-      --bg: #fff5f7; /* light professional pink */
+      --bg: #fff5f7;
       --paper: #ffffff;
       --text: #1f2937;
       --muted: #6b7280;
-      --accent: #7c3aed; /* professional purple */
+      --accent: #7c3aed;
       --border: #f1e4ea;
-      --ring: #f472b6; /* pink accent */
+      --ring: #f472b6;
       --shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 24px rgba(0,0,0,.06);
     }
-    *{box-sizing:border-box}
     body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;line-height:1.6;background:var(--bg);color:var(--text)}
-    a{color:var(--accent);text-decoration:none}
-    a:hover{text-decoration:underline}
     .container{max-width:920px;margin:0 auto;padding:0 16px}
     header{position:sticky;top:0;backdrop-filter:saturate(140%) blur(6px);border-bottom:1px solid var(--border);background:rgba(255,245,247,.8)}
     .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
     .brand{display:flex;align-items:center;gap:10px;font-weight:700}
-    .logo{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--ring),#c084fc);box-shadow:var(--shadow)}
     .links{display:flex;gap:18px;align-items:center}
     .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid var(--border);background:var(--paper);color:var(--text);box-shadow:var(--shadow)}
     .btn.primary{background:var(--accent);border-color:transparent;color:#fff}
-
     section{padding:64px 0}
     h1{font-size:clamp(28px,4.5vw,42px);margin:8px 0 0}
     h2{font-size:clamp(22px,3.5vw,28px);margin:0 0 16px}
@@ -37,123 +31,100 @@
     .pill{display:inline-block;font-size:12px;padding:4px 10px;border-radius:999px;border:1px solid var(--border);color:#7a2e47;background:#ffe7ef}
     .card{background:var(--paper);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);padding:18px}
     .grid{display:grid;gap:16px}
-    @media(min-width:760px){.cols-2{grid-template-columns:1fr 1fr}.cols-3{grid-template-columns:repeat(3,1fr)}}
+    @media(min-width:760px){.cols-2{grid-template-columns:1fr 1fr}}
     ul.clean{list-style:none;padding:0;margin:0;display:grid;gap:8px}
     ul.clean li{display:flex;gap:10px}
     .dot{width:8px;height:8px;border-radius:999px;background:var(--ring);margin-top:10px}
     footer{padding:36px 0;border-top:1px solid var(--border);text-align:center;color:var(--muted)}
-    .mobile-only{display:none}
-    @media(max-width:760px){.desktop-only{display:none}.mobile-only{display:block}.links{display:none}}
   </style>
-  <script>
-    function toggleMenu(){
-      const m = document.getElementById('mnav');
-      m.hidden = !m.hidden;
-    }
-  </script>
 </head>
 <body>
-  <!-- Header -->
   <header>
     <div class="container nav">
-      <a href="#home" class="brand" aria-label="Mahveen Raza">
-        <span class="logo" aria-hidden="true"></span>
-        <span>Mahveen Raza</span>
-      </a>
-      <nav class="links desktop-only" aria-label="Primary">
+      <a href="#home" class="brand">Mahveen Raza</a>
+      <nav class="links">
         <a href="#achievements">Achievements</a>
         <a href="#contributions">Contributions</a>
         <a href="#research">Research</a>
+        <a href="#news">News</a>
         <a href="#interests">Interests</a>
         <a href="#contact">Contact</a>
         <a class="btn primary" href="#resume">Resume</a>
       </nav>
-      <button class="btn mobile-only" onclick="toggleMenu()" aria-expanded="false" aria-controls="mnav">Menu</button>
-    </div>
-    <div id="mnav" class="container mobile-only" hidden>
-      <div class="grid" style="padding: 8px 0 16px">
-        <a href="#achievements" onclick="toggleMenu()">Achievements</a>
-        <a href="#contributions" onclick="toggleMenu()">Contributions</a>
-        <a href="#research" onclick="toggleMenu()">Research</a>
-        <a href="#interests" onclick="toggleMenu()">Interests</a>
-        <a href="#contact" onclick="toggleMenu()">Contact</a>
-        <a class="btn primary" href="#resume" onclick="toggleMenu()">Resume</a>
-      </div>
     </div>
   </header>
 
-  <!-- Intro -->
   <main id="home" class="container">
     <section class="card" style="margin-top:24px">
-      <p class="pill">High School Student · HWDSB</p>
+      <p class="pill">High School Student · HWDSB · Hamilton, Canada</p>
       <h1>Hi, I'm Mahveen.</h1>
-      <p>I’m a high school student in the Hamilton‑Wentworth District School Board (HWDSB). I enjoy building small, useful projects and learning new skills in technology and science. I’m currently looking for opportunities to learn, volunteer, and contribute.</p>
+      <p>I’m a high school student in the Hamilton‑Wentworth District School Board (HWDSB), located in Hamilton, Ontario, Canada. I enjoy building small, useful projects and learning new skills in technology and science. I’m currently looking for opportunities to learn, volunteer, and contribute.</p>
       <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
-        <a class="btn primary" href="#achievements">View Highlights</a>
         <a class="btn" href="#contact">Contact Me</a>
       </div>
     </section>
 
-    <!-- Achievements -->
     <section id="achievements">
       <h2>Achievements</h2>
       <div class="grid cols-2">
         <div class="card">
           <ul class="clean">
-            <li><span class="dot"></span> Honour Roll (2024–2025), HWDSB</li>
-            <li><span class="dot"></span> STEM Club: Regional Hackathon Finalist</li>
-            <li><span class="dot"></span> Math Contest: Top 25% school ranking</li>
+            <li><span class="dot"></span> Principal Ontario Award (2024), HWDSB</li>
+            <li><span class="dot"></span> Academic Excellence (2024)</li>
+            <li><span class="dot"></span> Honour Roll (2024)</li>
+            <li><span class="dot"></span> French Excellence Award</li>
           </ul>
         </div>
         <div class="card">
           <ul class="clean">
-            <li><span class="dot"></span> Volunteer Service Award (50+ hours)</li>
-            <li><span class="dot"></span> School Leadership: Peer Tutor (Math/CS)</li>
-            <li><span class="dot"></span> Certificate of Achievement in Computer Studies</li>
+            <li><span class="dot"></span> Math Contest: Top 2% school ranking</li>
+            <li><span class="dot"></span> School Leadership: Student Voice and Leadership</li>
+            <li><span class="dot"></span> Certificate in Public Speaking</li>
+            <li><span class="dot"></span> Achievement in History Award</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- Contributions -->
     <section id="contributions">
       <h2>Contributions</h2>
-      <div class="grid cols-2">
-        <div class="card">
-          <strong>Community & Volunteering</strong>
-          <ul class="clean" style="margin-top:10px">
-            <li><span class="dot"></span> Library Tech Helper: Assisted with coding workshops for beginners</li>
-            <li><span class="dot"></span> School Events: Registration and set‑up crew</li>
-            <li><span class="dot"></span> Mentoring: Helped peers with Python basics</li>
-          </ul>
-        </div>
-        <div class="card">
-          <strong>School Activities</strong>
-          <ul class="clean" style="margin-top:10px">
-            <li><span class="dot"></span> STEM Club member (robotics, simple web apps)</li>
-            <li><span class="dot"></span> Yearbook team (layout & captions)</li>
-            <li><span class="dot"></span> Eco‑Club volunteer (waste‑free events)</li>
-          </ul>
-        </div>
+      <div class="card">
+        <strong>Community & Volunteering</strong>
+        <ul class="clean" style="margin-top:10px">
+          <li><span class="dot"></span> Library Tech Helper: Assisted with coding workshops for beginners</li>
+          <li><span class="dot"></span> School Events: Registration and set‑up crew</li>
+          <li><span class="dot"></span> Mentoring: Helped peers with speaking and science</li>
+        </ul>
       </div>
     </section>
 
-    <!-- Research / Projects -->
     <section id="research">
       <h2>Research & Projects</h2>
       <div class="grid cols-2">
         <div class="card">
-          <strong>Science Fair Mini‑Study</strong>
-          <p>Compared study‑routine habits and quiz scores in my class; summarized results and presented charts. Learned basic data analysis and clear communication.</p>
+          <strong>AI Vaccine Research</strong>
+          <p>Explored how artificial intelligence could assist vaccine discovery, focusing on data analysis and prediction models.</p>
         </div>
         <div class="card">
-          <strong>Personal Project: Study Planner</strong>
-          <p>A simple web page that tracks homework and due dates. Focused on making it easy to use and mobile‑friendly.</p>
+          <strong>Green AI Project</strong>
+          <p>Studied energy-efficient AI models and methods to reduce carbon footprint in machine learning systems.</p>
         </div>
       </div>
     </section>
 
-    <!-- Interests -->
+    <section id="news">
+      <h2>News & Updates</h2>
+      <div class="card">
+        <p><em>Latest monthly updates and announcements will appear here.</em></p>
+        <ul class="clean">
+          <li><span class="dot"></span> <strong>August 2025:</strong> Green AI project, AI vaccine project, library volunteer work.</li>
+          <li><span class="dot"></span> <strong>July 2025:</strong> Library volunteer work.</li>
+          <li><span class="dot"></span> <strong>March 2025:</strong> Participated in regional science fair with AI vaccine project.</li>
+          <li><span class="dot"></span> <strong>February 2025:</strong> Completed Green AI study and shared findings with school STEM club.</li>
+        </ul>
+      </div>
+    </section>
+
     <section id="interests">
       <h2>Interests & Hobbies</h2>
       <div class="card">
@@ -166,29 +137,26 @@
       </div>
     </section>
 
-    <!-- Resume -->
     <section id="resume">
       <h2>Resume</h2>
       <div class="card" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px">
         <p style="margin:0">Download a PDF copy.</p>
-        <!-- Put your file at /assets/Mahveen_Raza_Resume.pdf -->
         <a class="btn primary" href="assets/Mahveen_Raza_Resume.pdf" target="_blank" rel="noopener">Download PDF</a>
       </div>
     </section>
 
-    <!-- Contact -->
     <section id="contact">
       <h2>Contact</h2>
       <div class="card">
-        <p>Email: <a href="mailto:mahveen@example.com">mahveen@example.com</a></p>
-        <p>Links: <a href="https://github.com/mahveenraza10" target="_blank" rel="noopener">GitHub</a></p>
+        <p>Email: <a href="mailto:mahveen.raza10@gmail.com">mahveen.raza10@gmail.com</a></p>
+        <p>Location: Hamilton, Ontario, Canada</p>
       </div>
     </section>
   </main>
 
   <footer>
     <div class="container">
-      <small>© <span id="year"></span> Mahveen Raza · HWDSB</small>
+      <small>© <span id="year"></span> Mahveen Raza </small>
     </div>
   </footer>
 
